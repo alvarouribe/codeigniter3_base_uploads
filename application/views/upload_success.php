@@ -1,18 +1,20 @@
-<html>
-<head>
-	<title>Upload Form</title>
-</head>
-<body>
+<div class="container pt-3 pb-3">
+	<div class="row">
+		<div class="col-12 col-lg-12 ">
+			<div class="p-4 border">
 
-<h3>Your file was successfully uploaded!</h3>
+				<h3><?php echo $title;?></h3>
+				Details:
+				<ul>
+					<?php foreach ($upload_data as $item => $value):?>
+						<li><?php echo $item;?>: <?php echo $value;?></li>
+					<?php endforeach; ?>
+				</ul>
 
-<ul>
-	<?php foreach ($upload_data as $item => $value):?>
-		<li><?php echo $item;?>: <?php echo $value;?></li>
-	<?php endforeach; ?>
-</ul>
+				<p><?php echo anchor('home', 'Upload Another File!'); ?></p>
 
-<p><?php echo anchor('home', 'Upload Another File!'); ?></p>
-
-</body>
-</html>
+				Unnoficial Final view
+			</div>
+		</div>
+	</div>
+</div>	

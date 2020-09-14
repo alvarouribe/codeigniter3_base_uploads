@@ -27,7 +27,8 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = 'Home';
+		$data['tab'] = 'Upload your file';
+		$data['title'] = 'Upload your file here';
 		$data['error'] = '';
 
 		$this->load->view('header', $data);
@@ -36,13 +37,14 @@ class Home extends CI_Controller {
 	}
 
 	public function do_upload()
-	{
+	{ 
 		$config['upload_path']          = './uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 1024;
 		// $config['max_width']            = 2048;
 		// $config['max_height']           = 2048;
-		$data['title'] = 'Home';
+		$data['tab'] = 'Oops!';
+		$data['title'] = 'Attention!';
 
 		$this->load->library('upload', $config);
 
@@ -57,8 +59,11 @@ class Home extends CI_Controller {
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
-
+			$data['tab'] = 'Upload Completed';
+			$data['title'] = 'Your file was successfully uploaded!';
+			$this->load->view('header', $data);
 			$this->load->view('upload_success', $data);
+			$this->load->view('footer');
 		}
 	}
 }

@@ -1,10 +1,8 @@
-        <footer class="container border-top my-4 pt-4">
-			<div class="row">
-				<div class="col">
-					<h4>Footer</h4>
-				</div>
-			</div>
-        </footer>
+<div class="container ">
+	<footer class="page-footer font-small d-flex justify-content-center " >
+		<div class="footer-copyright py-3 " style="position: absolute; bottom: 0; height: 100px; ">
+									© 2020 Footer
+		</div>
+	</footer>
+</div>
 
-    </body>
-</html>
