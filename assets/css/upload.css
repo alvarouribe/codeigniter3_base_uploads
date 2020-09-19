@@ -1,0 +1,54 @@
+.files input {
+    outline: 2px dashed #ff9900;
+    outline-offset: -5px;
+    padding: 120px 0px 85px 45%;
+    margin: 0;
+    width: 100% !important;
+}
+
+.files input:hover {
+    outline-offset: 0px;
+    outline: 2px dashed #ff9900;
+    background-color: #ffeae2;
+}
+
+.files {
+    position: relative
+}
+
+.files:after {
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url(https://www.iconfinder.com/data/icons/fevzicons-1/91/noun_170933-512.png);
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.color input {
+    background-color: #ffeae2;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: "La carga de un archivo no debe superar los 10 MB de tamaño, se admiten los tipos de archivos .pdf .png y .jpeg";
+    display: block;
+    margin: 0 auto;
+    color: #000000;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}

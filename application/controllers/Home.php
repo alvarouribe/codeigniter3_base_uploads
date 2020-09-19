@@ -27,8 +27,8 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['tab'] = 'Upload your file';
-		$data['title'] = 'Upload your file here';
+		$data['tab'] = 'Subir Documentos';
+		$data['title'] = 'Subir Documentos';
 		$data['error'] = '';
 
 		$this->load->view('header', $data);
@@ -39,16 +39,16 @@ class Home extends CI_Controller {
 	public function do_upload()
 	{ 
 		$config['upload_path']          = './uploads/';
-		$config['allowed_types']        = 'gif|jpg|png';
+		$config['allowed_types']        = 'pdf|jpg|png';
 		$config['max_size']             = 1024;
 		// $config['max_width']            = 2048;
 		// $config['max_height']           = 2048;
 		$data['tab'] = 'Oops!';
-		$data['title'] = 'Attention!';
+		$data['title'] = 'Ha habido un error';
 
 		$this->load->library('upload', $config);
 
-		if ( ! $this->upload->do_upload('userfile'))
+		if ( ! $this->upload->do_upload('userfileplan') and ! $this->upload->do_upload('userfileform'))
 		{
 			$error = array('error' => $this->upload->display_errors());
 
@@ -59,8 +59,8 @@ class Home extends CI_Controller {
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
-			$data['tab'] = 'Upload Completed';
-			$data['title'] = 'Your file was successfully uploaded!';
+			$data['tab'] = 'Carga Completada';
+			$data['title'] = 'Tus Documentos ya estan subidos';
 			$this->load->view('header', $data);
 			$this->load->view('upload_success', $data);
 			$this->load->view('footer');
