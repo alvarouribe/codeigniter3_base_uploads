@@ -56,14 +56,10 @@
 						<div class="col-md-12">
 							<div class="form-group files pb-3">
 								<input type="file" type="text/css" class="form-control" style="color: transparent;"
-									name="userfileplan" multiple>
+									name="userfileplan" >
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="file-field pt-5 d-none">
-					<input type="file" name="userfileplan" multiple size="20">
 				</div>
 
 				<div class="container mt-4 " id="filenamecontainer1">
@@ -134,7 +130,7 @@
 							<div class="col-md-12">
 								<div class="form-group files pb-3">
 									<input type="file" type="text/css" class="form-control" style="color: transparent;"
-										name="userfileform" multiple>
+										name="userfileform">
 								</div>
 							</div>
 						</div>

@@ -48,15 +48,26 @@ class Home extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
-		if ( ! $this->upload->do_upload('userfileplan') and ! $this->upload->do_upload('userfileform'))
-		{
-			$error = array('error' => $this->upload->display_errors());
+		$filesError = array(0,0); //0 = Error, 1 = Success
 
-			$this->load->view('header', $data);
-			$this->load->view('home', $error);
-			$this->load->view('footer');
+		if ( ! $this->upload->do_upload('userfileplan'))
+		{
 		}
 		else
+		{
+			 $filesError[0] = "1";
+		}
+
+		if ( ! $this->upload->do_upload('userfileform'))
+		{
+		}
+		else
+		{
+			 $filesError[1] = "1";
+		}
+
+
+		if(array_sum($filesError) == 2)
 		{
 			$data = array('upload_data' => $this->upload->data());
 			$data['tab'] = 'Carga Completada';
@@ -64,6 +75,25 @@ class Home extends CI_Controller {
 			$this->load->view('header', $data);
 			$this->load->view('upload_success', $data);
 			$this->load->view('footer');
+		}
+		else
+		{
+			if(array_sum($filesError) == 1)
+			{
+				$data = array('upload_data' => $this->upload->data());
+				$data['tab'] = 'Carga Completada';
+				$data['title'] = 'Tus Documentos ya estan subidos';
+				$this->load->view('header', $data);
+				$this->load->view('upload_success', $data);
+				$this->load->view('footer');
+			}
+			else
+			{
+				$error = array('error' => $this->upload->display_errors());
+				$this->load->view('header', $data);
+				$this->load->view('home', $error);
+				$this->load->view('footer');
+			}
 		}
 	}
 }

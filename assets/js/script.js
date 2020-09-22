@@ -13,12 +13,12 @@ $(document).ready(function() {
         $("#filename2").text($("[name=userfileform]").val().split('\\').pop());
     });
     $("#delete1").click(function() {
-        $("[name=userfileplan]").attr('value', '');
+        $("[name=userfileplan]").val('');
         $("#filenamecontainer1").hide();
         $("#uploadform1").show();
     });
     $("#delete2").click(function() {
-        $("[name=userfileform]").attr('value', '');
+        $("[name=userfileform]").val('');
         $("#filenamecontainer2").hide();
         $("#uploadform2").show();
     });
